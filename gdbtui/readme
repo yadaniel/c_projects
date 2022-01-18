@@ -1,0 +1,20 @@
+# commands
+refresh     refresh screen
+display     display <variable name>
+
+step        line of code, jump into calls
+stepi       instruction, jump into calls
+next        line of code, jump over calls
+nexti       instruction, jump over calls
+
+break       break <function name>
+clear       clear <function name>
+
+info break  show current breakpoints
+delete <n>  delete breakpoint with index n
+delete      delete all breakpoints
+
+run
+continue    cont
+
+
