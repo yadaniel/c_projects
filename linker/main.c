@@ -46,8 +46,11 @@ gcc -o main main.o -lbar -lfoo -L.
 #define INFO_TXT    INFO
 #endif
 
+uint32_t foo_wrapper(uint32_t n, uint32_t v);
+
 int main(void) {
     printf("v = %u " INFO_TXT "\n", foo(10, 0));
+    printf("v = %u " INFO_TXT "\n", foo_wrapper(10, 0));
     return 0;
 }
 
