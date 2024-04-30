@@ -4,12 +4,22 @@ CFLAGS = -Wall -include stdint.h -D__int16=int16_t -D__int32=int32_t -ftrapv
 
 .PHONY: build clean cleanall
 
-ifeq ($(wildcard low_pass_filter.c),)
+FILTER_CSRC ?= low_pass_filter.c
+
+
+ifeq ($(FILTER_CSRC),low_pass_filter.c)
+ifeq ($(wildcard $(FILTER_CSRC)),)
 $(error low_pass_filter.c link is NOT set)
 endif
+endif
+
+# ifeq ($(wildcard low_pass_filter.c),)
+# $(error low_pass_filter.c link is NOT set)
+# endif
 
 build:
-	gcc $(CFLAGS) -o low_pass_test low_pass_test.c low_pass_filter.c
+	echo $(FILTER_CSRC)
+	gcc $(CFLAGS) -o low_pass_test low_pass_test.c $(FILTER_CSRC)
 
 run: build
 	./sox_create.sh
