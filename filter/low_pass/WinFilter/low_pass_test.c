@@ -27,7 +27,7 @@ __int16 update(__int16 x) {
 
     cnt = 0;
     tmp = fir(x);
-    tmp = iir(x);
+    tmp = iir(tmp);
     assert(cnt == 1);   // incremented by stub
 
     return tmp;
@@ -66,8 +66,8 @@ int main(void) {
             //printf("%f ... %s", f1, line);
 
             // input range of f1: +/- 1.0f
-            /* float f1_ = ((float) update((int16_t)(32768.0*f1))) / 1015808.0;   // 2**15, 2**15*31 */
-            float f1_ = ((float) update((int16_t)(32768.0*f1))) / 32768.0;
+            /* float f1_ = ((float) update((int16_t)(32768.0*f1))) / 32768.0; */
+            float f1_ = ((float) update((int16_t)(8192.0*f1))) / 8192.0;
 
             // 0000000047_730; 0.13895; 0.00000;
             printf("%010d_%03d; %.5f; %.5f;\n", s, ms, f1, f1_);

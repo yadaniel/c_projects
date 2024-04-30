@@ -49,7 +49,7 @@ __int16 FIRCoef[Ntap] = {
         0
 };
 
-__int32 fir(__int16 NewSample) {
+__int16 fir(__int16 NewSample) {
         
     static __int16 x[Ntap];     //input samples
     int32_t y = 0;              //output sample
